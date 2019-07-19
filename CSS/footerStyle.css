@@ -1,0 +1,13 @@
+main {
+    
+    margin:0 auto;
+    padding:30px 20px;
+    min-height:calc(100vh - 80px - 18.4px);
+}
+
+footer {
+    text-align: center;
+    background-color: black;
+    color: #fff;
+    padding: 20px;
+}

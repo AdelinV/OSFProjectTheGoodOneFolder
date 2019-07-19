@@ -1,0 +1,201 @@
+* {
+    margin:0;
+    padding:0;
+    list-style:none;
+    text-decoration:none;
+}
+
+body {
+    margin: 0;
+    padding:0;
+    background-image: url(/CSS/Images/104448880-GettyImages-659529378.jpg);
+    background-size:100%;
+
+}
+
+.header {
+    background-color:#101010;
+    width: 100%;
+    height: 80px;
+    display: block;
+}
+.inner_header {
+    width: 1000px;
+    height: 100%;
+    display: block;
+    margin: 0 auto;
+
+}
+
+.back_path a{
+    padding:2px 4px;
+}
+
+ .back_path a:hover{
+ background-color: grey;
+ color:black;
+ margin-top:0;
+ 
+}
+
+.previous {
+    background-color:orange;
+    color:black;
+    border-radius:5px;
+}
+
+.logo_container{
+    height: 100%;
+    display:table;
+    float:left;
+}
+
+.logo_container h1{
+    color:white;
+    height: 100%;
+    display: table-cell;
+    vertical-align: middle;
+    font-family:'Montserrat';
+    font-size:32px;
+    font-weight:200;
+
+}
+
+.logo_container h1 span{
+    font-weight:800;
+}
+
+.navigation {
+    float:right;
+    height:100;
+}
+
+.navigation a{
+    height: 100%;
+    display:table;
+    float: left;
+    padding: 0px 20px;
+}
+
+.navigation a:last-child{
+    padding-right: 0;
+}
+
+.navigation a li{
+    display: table-cell;
+    vertical-align: middle;
+    height:100%;
+    color:white;
+    font-family:'Montserrat';
+    font-size: 16px;
+}
+
+
+
+
+
+.container {
+    text-align: right;
+    margin-right: 20px;
+}
+
+.btn {
+    border:1px solid white;
+    background: none;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-family: "montserrat";
+    cursor: pointer;
+    margin: 10px;
+    transition: 0.8s;
+    position: relative;
+    overflow: hidden;
+
+}
+
+.btn1, .btn2 {
+    color: white;
+    margin-top: 0px
+    
+}
+
+.btn1:hover,.btn2:hover {
+    color: #fff;
+}
+.btn::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: white;
+    z-index:-1;
+    transition: 0.8s;
+}
+
+.btn1::before, .btn2::before{
+    top: 0;
+    border-radius: 0 0 50% 50%;
+}
+
+.btn1:hover::before,.btn2:hover::before{
+    height: 180%;
+}
+
+.home_page {
+    color:orange;
+    height: 100%;
+    display: table-cell;
+    
+    font-family:'Montserrat';
+    font-size:50px;
+    font-weight:200;
+    float: center;
+    padding: 80px 20px;
+    border-radius: 0 0 50% 50%;
+}
+
+#holder {
+    height:auto;
+    width:250px;
+    float:center;
+    position: absolute;
+    left:40%;
+    
+}
+
+#top {
+width:400;
+height:30px;
+border:1px solid #101010;
+color:orange;
+    
+    display: table-cell;
+    
+    font-family:'Montserrat';
+    font-size:50px;
+    font-weight:200;
+    float: center;
+    padding: 20px 20px;
+    border:2px solid black;
+    background-image: url(/CSS/Images/11CRITIC-neiman-2-articleLarge.jpg);
+    font-family: Arial, "Times New Roman";
+    font-style: bold;
+}
+
+#bottom {
+    width:248;
+    height:px;
+    border:2px solid black;
+    font-size: 15px;
+    background-image: url(/CSS/Images/11CRITIC-neiman-2-articleLarge.jpg);
+    float: center;
+    font-family: Arial, "Times New Roman";
+    font-style: bold;
+    
+}
+
+.home_page {
+    float:center;
+    
+}
