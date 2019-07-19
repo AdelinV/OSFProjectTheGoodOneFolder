@@ -1,3 +1,7 @@
+// if (process.env.NODE_ENV !=='production'){
+//     require('dotenv').parse()
+// }
+
 var express = require('express');
 var bodyParser = require('body-parser');
 var cors = require('cors');
