@@ -1,14 +1,18 @@
  
  <!DOCTYPE html>
  <html> 
-     <body>
-         <% include partials/header.ejs %>
-         
+     <body>  
+        <main>
+            <h1><%= name %></h1>
+            <p><%= pageDescription %></p>
+            <% for(var index in result) { %>
+                <h1><a href="<%= result[index].parent_category_id%>/<%= result[index].id%>"><li><%= result[index].page_title %></li></a></h1>
+                <% if(result[index].image != null) { %>
+                    <a href="<%= result[index].parent_category_id%>/<%= result[index].id%>"><img src= "/public/images/<%=result[index].image%>" /></a>
+                <% } %>
+                <p> <%= result[index].page_description%></p>
 
-         
-         
-         <% include partials/footer.ejs %>
- 
-  
+            <% } %>
+        </main>
      </body>
  </html>

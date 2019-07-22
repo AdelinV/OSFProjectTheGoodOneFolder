@@ -1,10 +1,21 @@
 <!DOCTYPE html>
 <html> 
+        <link href= "/CSS/ProdDesStyle.css" rel="stylesheet" type = "text/css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <body>
-        <% include partials/header.ejs %>
-         <%- body %>
-        <% include partials/footer.ejs %>
+      
+            <h1><li><%= result.page_title %></li></h1>
+            <div class="Picture_BoxDes">
+                <% if(result.image_groups[0].images[0].link != null) { %>
 
- 
+                    <img class ="img_Des" src= "/public/images/<%=result.image_groups[0].images[0].link%>" />
+                
+                <% } %>
+            </div>
+        <div class="Description_BoxDes">
+            <p class = "nameProd_Des"> <%= result.name%></p>
+            <p class = "descriptionProd_Des"> <%= result.long_description %></p>
+            <p>Price: <%= result.price%></p>
+        </div>
     </body>
 </html>

@@ -1,0 +1,21 @@
+.Picture_BoxDes {
+    width:500px;
+   height:500px;
+    margin: 15px;
+    float:left;
+}
+
+.Description_BoxDes {
+    margin: 10px;
+}
+
+.descriptionProd_Des {
+    padding-left:px;
+    margin:10px;
+}
+
+.img_Des {
+    width:500px;
+   height:550px;
+    max-width:100%; 
+}

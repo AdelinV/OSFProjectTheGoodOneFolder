@@ -8,8 +8,9 @@
 body {
     margin: 0;
     padding:0;
-    background-image: url(/CSS/Images/104448880-GettyImages-659529378.jpg);
+    background-color:#b0bae95b;
     background-size:100%;
+    height: 100%;
 
 }
 
@@ -32,15 +33,15 @@ body {
 }
 
  .back_path a:hover{
- background-color: grey;
- color:black;
+ background-color: red;
+ color:green;
  margin-top:0;
  
 }
 
 .previous {
     background-color:orange;
-    color:black;
+    color:red;
     border-radius:5px;
 }
 
@@ -51,7 +52,7 @@ body {
 }
 
 .logo_container h1{
-    color:white;
+    color:red;
     height: 100%;
     display: table-cell;
     vertical-align: middle;
@@ -100,7 +101,7 @@ body {
 }
 
 .btn {
-    border:1px solid white;
+    border:1px solid red;
     background: none;
     padding: 10px 20px;
     font-size: 20px;
@@ -114,13 +115,13 @@ body {
 }
 
 .btn1, .btn2 {
-    color: white;
+    color: red;
     margin-top: 0px
     
 }
 
 .btn1:hover,.btn2:hover {
-    color: #fff;
+    color: red;
 }
 .btn::before{
     content: "";
@@ -128,7 +129,7 @@ body {
     left: 0;
     width: 100%;
     height: 0%;
-    background: white;
+    background: red;
     z-index:-1;
     transition: 0.8s;
 }
@@ -143,7 +144,7 @@ body {
 }
 
 .home_page {
-    color:orange;
+    color: orange;
     height: 100%;
     display: table-cell;
     
@@ -178,7 +179,7 @@ color:orange;
     float: center;
     padding: 20px 20px;
     border:2px solid black;
-    background-image: url(/CSS/Images/11CRITIC-neiman-2-articleLarge.jpg);
+    background-image: url(/CSS/Images/blue-abstract-acrylic-brush-stroke-textured-background_53876-86373.jpg);
     font-family: Arial, "Times New Roman";
     font-style: bold;
 }
@@ -188,7 +189,7 @@ color:orange;
     height:px;
     border:2px solid black;
     font-size: 15px;
-    background-image: url(/CSS/Images/11CRITIC-neiman-2-articleLarge.jpg);
+    background-image: url(/CSS/Images/blue-abstract-acrylic-brush-stroke-textured-background_53876-86373.jpg);
     float: center;
     font-family: Arial, "Times New Roman";
     font-style: bold;

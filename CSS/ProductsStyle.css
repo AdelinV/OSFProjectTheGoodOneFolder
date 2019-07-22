@@ -1,0 +1,38 @@
+.content_box .picture_box {
+   width:200px;
+   height:300px;
+   margin: 15px;
+   float:left;
+}
+
+.content_box .description_box {
+    margin: 10px;
+    width:450px;
+   height:350px;
+}
+
+.imgProd {
+    width:200px;
+    height:300px;
+}
+
+h1 {
+    font-size: 15px;
+}
+.name_prod {
+    font-size: 15px;
+    margin:10px;
+}
+
+.border {
+    border-bottom: 1px solid blue;
+}
+
+.content_box {
+   float:left;
+   width: 50%;
+}
+
+.description_prod {
+    
+}

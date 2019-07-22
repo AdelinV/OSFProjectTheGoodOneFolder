@@ -1,10 +1,29 @@
 <!DOCTYPE html>
 <html> 
+        <link href= "/CSS/ProductsStyle.css" rel="stylesheet" type = "text/css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <body>
-        <% include partials/header.ejs %>
-         <%- body %>
-        <% include partials/footer.ejs %>
-
- 
+     
+        <% for(var index in result) { %>
+            <div class="content_box">
+                <div class="title_box">
+                    <h1><a href="<%= result[index].primary_category_id%>/<%= result[index].id%>"><li><%= result[index].page_title %></li></a></h1>
+                </div>
+                <% if(result[index].image_groups[0].images[0].link != null) { %>
+                    <div class="picture_box">
+                        <a href="<%= result[index].primary_category_id%>/<%= result[index].id%>"><img class="imgProd" src= "/public/images/<%=result[index].image_groups[0].images[0].link%>" />    </a>
+                    </div>
+                <% } %>
+                <div class="description_box">
+                    <p class="name_prod"> <%= result[index].name%></p> 
+                    <p class="description_prod"> <%= result[index].short_description%></p>
+                    <p> Price: <%= result[index].price%></p>
+                </div>
+                <div class="border"></div>
+            </div>
+            
+        <% } %>
+    
+    
     </body>
 </html>
