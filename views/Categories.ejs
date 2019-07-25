@@ -1,18 +1,14 @@
- 
- <!DOCTYPE html>
- <html> 
-     <body>  
-        <main>
-            <h1><%= name %></h1>
-            <p><%= pageDescription %></p>
-            <% for(var index in result) { %>
-                <h1><a href="<%= result[index].parent_category_id%>/<%= result[index].id%>"><li><%= result[index].page_title %></li></a></h1>
-                <% if(result[index].image != null) { %>
-                    <a href="<%= result[index].parent_category_id%>/<%= result[index].id%>"><img src= "/public/images/<%=result[index].image%>" /></a>
-                <% } %>
-                <p> <%= result[index].page_description%></p>
-
-            <% } %>
-        </main>
-     </body>
- </html>
+<% for(var index in result) { %>
+    <div class="content_box">
+        <div class="title_box">
+            <h1><a href="<%= result[index].primary_category_id%>/<%= result[index].id%>"><li><%= result[index].page_title %></li></a></h1>
+        </div>
+        <% if(result[index].image != null) { %>
+            <div class="picture_box">
+                <a href="<%= result[index].primary_category_id%>/<%= result[index].id%>"><img class="imgProd" src= "/public/images/<%=result[index].image %>" />    </a>
+            </div>
+        <% } %>
+        <div class="border"></div>
+    </div>
+    
+<% } %>
