@@ -5,7 +5,7 @@ const Category = require('../models/category');
 
 router.get('/', function(req, res, next){
     Category.find({}, function(items){
-        console.log("GAAAY");
+        console.log("");
         res.render('index');
     });
 
@@ -23,14 +23,14 @@ router.get('/', function(req, res, next){
 
 // });
 
-router.get("/:category", function(req, res, next) {
-    //const id = req.params.category;
-    Category.find({"id": req.params.category}, function(err, doc) {
-        console.log(doc[0].categories);
-        res.render('../views/Categories.ejs', {
-            result: doc[0].categories
-        });
-    });
-});
+ router.get("/:category", function(req, res) {
+     //const id = req.params.category;
+     Category.findOne({_id: req.params.category}, function(err, items) {
+         console.log(items[0].categories[0]);
+         res.render('../views/Categories.ejs', {
+             object: items[0].categories
+         });
+     });
+ });
 
 module.exports = router;
