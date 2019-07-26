@@ -21,6 +21,9 @@ fs.readdirSync(__dirname +'/models').forEach(function(filename){
     console.log(__dirname +'/models');
     if (~filename.indexOf('.js')) require(__dirname +'/models/' + filename)
 });
+app.get('/', function(req, res, next){
+        res.render('index.ejs');
+});
 
 // function getFromDatabase(category, queryString) {
 
