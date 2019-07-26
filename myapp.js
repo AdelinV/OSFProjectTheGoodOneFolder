@@ -7,8 +7,7 @@ var path = require('path');
 var expressLayouts= require('express-ejs-layouts');
 var app = express('cors');
 var assert = require('assert');
-const MongoClient = require('mongodb').MongoClient;
-var mongoDB = 'mongodb+srv://User:Adelin99@adelindb-xjpyf.mongodb.net/test?retryWrites=true&w=majority';
+var mongoDB = 'mongodb+srv://User:Adelin99@adelindb-xjpyf.mongodb.net/Project?retryWrites=true&w=majority';
 var fs = require('fs');
 
 app.set('view engine', 'ejs');
@@ -45,9 +44,7 @@ fs.readdirSync(__dirname +'/models').forEach(function(filename){
 //                              resolve(items);
 //                          }
 //     }
-
-// }
-
+//
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');

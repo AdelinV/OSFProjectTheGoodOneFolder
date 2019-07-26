@@ -1,15 +1,15 @@
 const express = require('express');
 const router = express.Router();
+const _ = require('underscore')
+// var Category = require('../models/category');
 
-const Category = require('../models/category');
+ router.get('/', function(req, res, next){
+     Category.find({}, function(items){
+         console.log("");
+         res.render('index');
+     });
 
-router.get('/', function(req, res, next){
-    Category.find({}, function(items){
-        console.log("");
-        res.render('index');
-    });
-
-});
+ });
 
 // router.post('/', (req, res, next) => {
 //     const category = {
@@ -23,14 +23,34 @@ router.get('/', function(req, res, next){
 
 // });
 
- router.get("/:category", function(req, res) {
-     //const id = req.params.category;
-     Category.findOne({_id: req.params.category}, function(err, items) {
-         console.log(items[0].categories[0]);
-         res.render('../views/Categories.ejs', {
-             object: items[0].categories
-         });
-     });
- });
+//  router.get("/:category", function(req, res) {
+//      //const id = req.params.category;
+//      Category.find({"id": req.params.category}, function(err, items) {
+//          console.log(items[0].categories[0]);
+//          res.render('../views/Categories.ejs', {
+//              result: items[0].categories
+//          });
+//      });
+//  });
+
+   router.get("/:category", function(req, res) {
+     var Category = require('../models/category');
+      Category.findOne({"id": req.params.category}, function(err, items) {
+          console.log(items.categories);
+        res.render("../views/Categories.ejs", {
+            // Underscore.js lib
+                     _     : _ ,  
+            // Template data
+            title:items,
+           items:items.categories,
+            active: true
+          
+        });
+        console.log(items);
+      
+      });
+  });
+
+
 
 module.exports = router;

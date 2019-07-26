@@ -1,14 +1,15 @@
-<% for(var index in result) { %>
+<% for(var index in items) { %>
     <div class="content_box">
-        <div class="title_box">
-            <h1><a href="<%= result[index].primary_category_id%>/<%= result[index].id%>"><li><%= result[index].page_title %></li></a></h1>
+            <div class="descriptionCat_box">
+                </div>
+        <div class="titleCat_box">
+            <h1><a href="<%= items[index].primary_category_id%>/<%= items[index].id%>"><li><%= items[index].page_description %></li></a></h1>
         </div>
-        <% if(result[index].image != null) { %>
+        <% if(items[index].Category != null) { %>
             <div class="picture_box">
-                <a href="<%= result[index].primary_category_id%>/<%= result[index].id%>"><img class="imgProd" src= "/public/images/<%=result[index].image %>" />    </a>
+                <a href="<%= items[index].primary_category_id%>/<%= items[index].id%>"><img class="imgProd" src= "/public/images/<%=items[index].Category.image%>" />    </a>
             </div>
         <% } %>
-        <div class="border"></div>
     </div>
     
 <% } %>
