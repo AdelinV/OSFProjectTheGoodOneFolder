@@ -1,5 +1,4 @@
 var mongoose = require('mongoose');
- mongoose.connect('mongodb+srv://User:Adelin99@adelindb-xjpyf.mongodb.net/Project?retryWrites=true&w=majority', { useNewUrlParser: true });
 
 const Schema = mongoose.Schema;
 
@@ -20,6 +19,7 @@ const categSchema = new Schema({
     categories: [subCategSchema]
 });
 
+
 const mainCategSchema = new Schema({
     name: String,
     page_description: String,
@@ -28,4 +28,4 @@ const mainCategSchema = new Schema({
 }, {collection: 'categories'});
 
 
-module.exports = mongoose.model('Category', mainCategSchema)
+module.exports = mongoose.model('Category', mainCategSchema);

@@ -1,21 +1,33 @@
-<!DOCTYPE html>
-<html> 
-        <link href= "/CSS/ProdDesStyle.css" rel="stylesheet" type = "text/css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <body>
-      
-            <h1><li><%= result.page_title %></li></h1>
-            <div class="Picture_BoxDes">
-                <% if(result.image_groups[0].images[0].link != null) { %>
 
-                    <img class ="img_Des" src= "/public/images/<%=result.image_groups[0].images[0].link%>" />
-                
-                <% } %>
+        <head>
+            <meta charset="utf-8">
+            <link href= "/CSS/ProdDesStyle.css" rel="stylesheet" type = "text/css">
+            
+        </head>
+        <% for(var index in items) { %>
+            <div class="content_box">
+                <div class="title_box">
+                    <h3><a href="<%= items[index].id %>/"><li><%= items[index]._doc.name %></li></a></h3>
+                </div>
+                <% _.each(items[index]._doc.image_groups, function(image) { %>
+                    <% if (image.view_type == 'medium' && !image.variation_value) { %>  
+                    <div>  
+                        <p style = "width: 500px;">
+                            <a href="<%= items[index].id %>/">
+                                <img style="float: left; margin-right: 10px; margin-bottom: 5px;" src="/public/images/<%= image.images[0].link %>">
+                            </a>
+                        </p>
+                    </div>
+                    <% } %>
+                <% }); %>
+                <div class="description_box">
+                    <p class="name_prod"> <%= items[index]._doc.name%></p> 
+                    <p class="description_prod"> <%= items[index]._doc.short_description%></p>
+                    <p> Price: <%= items[index]._doc.price%></p> <p><p class="buttonBuy"><button>Add to Cart</button></p></p>
+                </div>
+                <div class="border"></div>
             </div>
-        <div class="Description_BoxDes">
-            <p class = "nameProd_Des"> <%= result.name%></p>
-            <p class = "descriptionProd_Des"> <%= result.long_description %></p>
-            <p>Price: <%= result.price%></p>
-        </div>
-    </body>
-</html>
+            
+        <% } %>
+
+    

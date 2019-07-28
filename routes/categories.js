@@ -1,55 +1,74 @@
 const express = require('express');
 const router = express.Router();
-const _ = require('underscore')
+const _ = require('underscore');
 const Category = require('../models/category');
+var mongoose = require('mongoose');
 
-//  router.get('/', function(req, res, next){
-//      Category.find({}, function(items){
-//          console.log("");
-//          res.render('index');
-//      });
+mongoose.connect('mongodb+srv://User:Adelin99@adelindb-xjpyf.mongodb.net/Project?retryWrites=true&w=majority', { useNewUrlParser: true });
 
-//  });
+router.get("/:category", function(req, res) {
+  if (Object.keys(req.params).length == 1) {
+   Category.findOne({"id": req.params.category}, function(err, items) {
+     res.render("../views/Categories", {
+         // Underscore.js lib
+                  _   : _ ,  
+         // Template data
+       items: items, 
+       active: true
+     });
+   }); 
+  }    
+});
 
-// router.post('/', (req, res, next) => {
-//     const category = {
-//         name: req.body.name,
-//         price: req.body.price
-//     };
-//     res.status(201).json({
-//         message: "handling POST requests to /cateogories",
-//         createdCategory: category
-//     });
-
-// });
-
-//  router.get("/:category", function(req, res) {
-//      //const id = req.params.category;
-//      Category.find({"id": req.params.category}, function(err, items) {
-//          console.log(items[0].categories[0]);
-//          res.render('../views/Categories.ejs', {
-//              result: items[0].categories
-//          });
-//      });
-//  });
-
-   router.get("/:category", function(req, res) {
-    const Category = require('../models/category');
-      Category.findOne({"id": req.params.category}, function(err, items) {
-          console.log(items.categories);
-        res.render("../views/Categories.ejs", {
+router.get("/:category/:subcategories", function(req, res) {
+  if (Object.keys(req.params).length == 2) {
+    Category.findOne({"id": req.params.category}, function(err, items) {
+      for(var i = 0; i < items.categories.length; i++) {
+        if(items.categories[i].id == req.params.subcategories) {
+          var subCatItems = items.categories[i];
+          console.log(Object.keys(req.params).length);
+          res.render("../views/SubCategories", {
             // Underscore.js lib
-                     _     : _ ,  
+                     _   : _ ,  
             // Template data
-            title:'My osf project',
-           items:items.categories[0],
+            items: subCatItems,    
             active: true
-        });
-        console.log(items);
-      
+          });
+        }
+      }
+    });
+  }
+});
+
+router.get("/:category/:subcategories/:productCat", function(req, res) {
+  if (Object.keys(req.params).length == 3) {
+    var  ProductCategory = require('../models/product');
+    ProductCategory.find({primary_category_id: req.params.productCat}, function(err, items) {
+      res.render("../views/Products", {
+        // Underscore.js lib
+                 _   : _ ,  
+        // Template data
+        items: items,     
+        active: true
       });
-  });
+    });
+  }
+});
 
-
+router.get("/:category/:subcategories/:productCat/:productDes", function(req, res) {
+  if (Object.keys(req.params).length == 4) {
+    var  ProductCategoryDes = require('../models/product');
+    ProductCategoryDes.find({id: req.params.productDes}, function(err, items) {
+      console.log(items);
+      res.render("../views/ProductsDes", {
+        // Underscore.js lib
+                 _   : _ ,  
+        // Template data
+        items: items,    
+        active: true
+      });
+    });
+  }
+});
 
 module.exports = router;

@@ -33,6 +33,14 @@ h1 {
    width: 50%;
 }
 
-.description_prod {
-    
-}
+.buttonBuy {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }

@@ -9,14 +9,23 @@
             <h1>My<span>OSF</span>Project</h1> 
             </div>
             <ul class="navigation">
-                    <a href="/womens"><li><button class ="btn btn1">Women</button> </li></a>
-                    <a href="/mens"><li><button class ="btn btn2">Men</button></li></a>
+                    <a href="/womens/"><li><button class ="btn btn1">Women</button> </li></a>
+                    <a href="/mens/"><li><button class ="btn btn2">Men</button></li></a>
                 </ul>
     
              </div>
     </div>
 
-    <div class = 'back_path'>
-        <a href= "" class= "previous">&laquo;Previous&raquo;</a>
-    </div>
-    
+    <script lang="JavaScript">
+        var path = "";
+        var href = document.location.href;
+        var s = href.split("/");
+        path += "<A HREF=\" / \" >Home</A> / ";
+        for (var i=3;i<(s.length-1);i++) {
+        path+="<A HREF=\""+href.substring(0,href.indexOf("/"+s[i])+s[i].length+1)+"/\">"+s[i]+"</A> / ";
+        }
+        i=s.length-1;
+        path+="<A HREF=\""+href.substring(0,href.indexOf(s[i])+s[i].length)+"\">"+s[i]+"</A>";
+        var url = path;
+        document.writeln(url);
+</script>

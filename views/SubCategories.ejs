@@ -1,0 +1,22 @@
+
+<ul style="list-style: none;">
+        <li>
+            <div>
+                <ul style="list-style: none;">
+                    <% _.each(items.categories, function(subC) { %>
+                    <li>
+                        <a href = "<%= subC.id %>/"><h2 style="color: black"><%= subC.name %></h2></a>
+                        <p><%= subC.page_description %></p>
+                        <% if (subC.image) { %>
+                        <div>
+                            <a href="<%= subC.id %>/">
+                                <img src="/public/images/<%= subC.image %>">
+                            </a>
+                        </div>
+                        <% } %>
+                    </li>
+                    <% }); %>                    
+                </ul>
+            </div>    
+        </li>
+    </ul>

@@ -1,20 +1,22 @@
-<!DOCTYPE html>
-<html> 
-    <body>  
-    <body>  
-       <main>
-           <h1><%= items.name %></h1>
-           <p><%= items.page_description %></p>
-           <% for(var index in items.categories) { %>
-               <h1><a href="<%= items.parent_category_id%>/<%= items.id%>"><li><%= items.page_title %></li></a></h1>
-               <% if(items.image != null) { %>
-                   <a href="<%= items.id%>"><img src= "/public/images/<%=items.image%>" /></a>
-               <% } %>
-               <p> <%= items.page_description%></p>
-               <p> <%= items.image%></p>
 
- 
-           <% } %>
-       </main>
-    </body>
-</html>
+<ul style="list-style: none;">
+    <li>
+        <div>
+            <ul style="list-style: none;">
+                <% _.each(items.categories, function(subC) { %>
+                <li>
+                    <a href = "<%= subC.id %>/"><h2 style="color: black"><%= subC.name %></h2></a>
+                    <p><%= subC.page_description %></p>
+                    <% if (subC.image) { %>
+                    <div>
+                        <a href="<%= subC.id %>/">
+                            <img src="/public/images/<%= subC.image %>">
+                        </a>
+                    </div>
+                    <% } %>
+                </li>
+                <% }); %>                    
+            </ul>
+        </div>    
+    </li>
+</ul>

@@ -1,17 +1,27 @@
-<% for(var index in result) { %>
+<head>
+    <meta charset="utf-8">
+    <link href= "/CSS/ProductsStyle.css" rel="stylesheet" type = "text/css">
+</head>
+<% for(var index in items) { %>
     <div class="content_box">
         <div class="title_box">
-            <h1><a href="<%= result[index].primary_category_id%>/<%= result[index].id%>"><li><%= result[index].page_title %></li></a></h1>
+            <h3><a href="<%= items[index].id %>/"><li><%= items[index]._doc.name %></li></a></h3>
         </div>
-        <% if(result[index].image_groups[0].images[0].link != null) { %>
-            <div class="picture_box">
-                <a href="<%= result[index].primary_category_id%>/<%= result[index].id%>"><img class="imgProd" src= "/public/images/<%=result[index].image_groups[0].images[0].link%>" />    </a>
+        <% _.each(items[index]._doc.image_groups, function(image) { %>
+            <% if (image.view_type == 'medium' && !image.variation_value) { %>  
+            <div>  
+                <p style = "width: 500px;">
+                    <a href="<%= items[index].id %>/">
+                        <img style="float: left; margin-right: 10px; margin-bottom: 5px;" src="/public/images/<%= image.images[0].link %>">
+                    </a>
+                </p>
             </div>
-        <% } %>
+            <% } %>
+        <% }); %>
         <div class="description_box">
-            <p class="name_prod"> <%= result[index].name%></p> 
-            <p class="description_prod"> <%= result[index].short_description%></p>
-            <p> Price: <%= result[index].price%></p>
+            <p class="name_prod"> <%= items[index]._doc.name%></p> 
+            <p class="description_prod"> <%= items[index]._doc.short_description%></p>
+            <p> Price: <%= items[index]._doc.price%></p>
         </div>
         <div class="border"></div>
     </div>
